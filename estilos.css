@@ -1,0 +1,144 @@
+
+        .Titulo
+
+        {
+
+            display: table-caption;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            font-size: larger;
+
+        }
+
+        .cabecera
+
+     
+	{
+
+            display: table-row;
+
+            font-weight: bold;
+
+            text-align: center;
+   .Fila
+
+        {
+			
+            display: table-row;
+			
+
+        }
+        }
+
+      
+        .Celda1
+
+        {
+			
+            
+			
+			min-height: 25px;
+			width: 24%;
+			text-align: center;
+			margin: 2px 2px;
+			height: 15px;
+
+        }
+	
+
+		.modalmask {
+			position: fixed;
+			font-family: Arial, sans-serif;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0,0,0,0.8);
+			z-index: 99999;
+			opacity:0;
+			-webkit-transition: opacity 400ms ease-in;
+			-moz-transition: opacity 400ms ease-in;
+			transition: opacity 400ms ease-in;
+			pointer-events: none;
+			}
+
+			.modalmask:target {
+				opacity:1;
+				pointer-events: auto;
+				}
+
+			.modalbox {
+				width: 400px;
+				position: relative;
+				padding: 50px 20px 13px 20px;
+				background: #fff;
+				border-radius: 3px;
+				-webkit-transition: all 500ms ease-in;
+				-moz-transition:all 500ms ease-in;
+				transition:all 500ms ease-in;
+
+			}
+
+			.movedown {
+				margin: 0 auto;
+			}
+		a.boxclose{
+    float:right;
+    margin-top:-30px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;       
+}
+
+.boxclose:before {
+    content: "×";
+}
+
+			.rotate {
+				margin: 10% auto;
+				-webkit-transform: scale(-5,-5);
+				transform: scale(-5,-5);
+			}
+
+			.resize {
+				margin: 10% auto;
+				width: 300px;
+				height: 150px;
+			}
+
+
+
+
+
+			.enlaceboton {    font-family: verdana, arial, sans-serif;
+   				font-size: 10pt;
+   				font-weight: bold;
+   				padding: 4px;
+  				background-color: #1C6897;
+  				color: #FBFBFB;
+   				text-decoration: none;
+				}
+			.enlaceboton:link,
+			.enlaceboton:visited {
+  				  border-top: 1px solid #cccccc;
+ 				  border-bottom: 2px solid #666666;
+ 				  border-left: 1px solid #cccccc;
+   				  border-right: 2px solid #666666;
+					}
+			.enlaceboton:hover {
+   				 border-bottom: 1px solid #cccccc;
+  				 border-top: 2px solid #666666;
+  				 border-right: 1px solid #cccccc;
+  				 border-left: 2px solid #666666;
+				} 
