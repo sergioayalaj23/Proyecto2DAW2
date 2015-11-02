@@ -20,7 +20,7 @@
 	<body>
 		<center>
 		<section>
-		<form name="reservar" action="reservar.php" method="POST" onSubmit="return avisarBusqueda();">
+		<form name="reservar" action="reservar.php" method="GET" onSubmit="return avisarBusqueda();">
 
 
 			 <section>
