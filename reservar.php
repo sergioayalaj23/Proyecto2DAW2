@@ -6,16 +6,13 @@
 	</head>
 	<body>
 		<?php
-			//realizamos la conexión con mysql
-			$con = mysqli_connect('localhost', 'root', 'DAW22015', 'bd_recursos');
+			//Realizamos la conexión con mysql
+			$con = mysqli_connect('localhost','root','','bd_recursos');
 
-			//esta consulta devuelve todos los datos del producto cuyo campo clave (pro_id) es igual a la id que nos llega por la barra de direcciones
+			//Esta consulta devuelve todos los datos del producto cuyo campo clave (pro_id) es igual a la id que nos llega por la barra de direcciones
 			$sql = "SELECT * FROM tbl_tipo_recurso  INNER JOIN tbl_recurso ON tbl_tipo_recurso.id_tipo_recurso=tbl_recurso.id_tipo_recurso WHERE tbl_tipo_recurso.id_tipo_recurso=$_REQUEST[recursos] AND tbl_recurso.id_tipo_recurso=$_REQUEST[recursos]";
-
-			//mostramos la consulta para ver por pantalla si es lo que esperábamos o no
-			//echo "$sql<br/>";
-			echo $sql;
-			//lanzamos la sentencia sql
+			
+			//Lanzamos la sentencia sql
 			$datos = mysqli_query($con, $sql);
 			if(mysqli_num_rows($datos)>0){
 				?>
