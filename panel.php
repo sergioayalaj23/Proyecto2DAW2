@@ -6,54 +6,30 @@
 		<script>
 			function avisarBusqueda(){
 				if(document.reservar.recursos.value!=""){
-					return true;
-				} else {
-					alert("Selecciona el tipo de recurso que desea reservar");
-					return false;
-				}
+						return true;
+					} else {
+						alert("Selecciona el tipo de recurso que desea reservar");
+						return false;
+					}
 			}
+			
 		</script>
+
 	</head>
 	<body>
-<<<<<<< HEAD
 		<center>
 		<section>
 		<form name="reservar" action="reservar.php" method="POST" onSubmit="return avisarBusqueda();">
-=======
-	<?php 
->>>>>>> refs/remotes/origin/master
 
-	// Conexion a la base de datos
-	$conexion = mysqli_connect('localhost','root','','bd_recursos');
-		
-	//Variables Nombre y password
-	$username = $_REQUEST['username'];
-	$password = $_REQUEST['password'];
 
-<<<<<<< HEAD
 			 <section>
 
             <article >
-=======
-	// Consulta a la base de datos
-	$sql = "SELECT * FROM tbl_usuario WHERE usuario ='$username' AND password ='$password' ";
-	$datos = mysqli_query($conexion,$sql);
->>>>>>> refs/remotes/origin/master
 
-	if(mysqli_num_rows($datos) ==1){
-		echo "Bienvenido ".$username;
-	} else{
-		header('Location: index.php');
-	}
-	?>
-		<center>
-		<section>
-		<form name="reservar" action="reservar.php" method="GET" onSubmit="return avisarBusqueda();">
-			<section>
-	            <article  class="Celda1">
-	            <p><a href="#reservar" class="enlaceboton">Buscar producto para reservar</a></p>	
-	            </article>
-       		</section>
+                <p><a href="#reservar" class="enlaceboton">Buscar producto para reservar</a></p>
+					
+            </article>
+        </section>
 
         <div id="reservar" class="modalmask">
 			<div class="modalbox movedown" id="resultadoContent">
@@ -63,20 +39,14 @@
                 	<select name="recursos">
 				<option value="" selected>Selecciona una opción...</option>
 				<?php
-<<<<<<< HEAD
 include('login.php');
 				$con = mysqli_connect('localhost', 'root', '', 'bd_recursos');
-=======
-
-				$con = mysqli_connect('localhost','root','','bd_recursos');
->>>>>>> refs/remotes/origin/master
 				$sql = mysqli_query($con, "SELECT * FROM tbl_tipo_recurso");
 
 
 				while($dato=mysqli_fetch_array($sql)) {
 				echo "<option value=\"$dato[id_tipo_recurso]\">$dato[nombre_tipo_recurso]</option>";
 				}
-				
 				mysqli_close($con);
 				?>
 				</select><br/><br/>

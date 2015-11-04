@@ -10,7 +10,6 @@ include('login.php');
 	</head>
 	<body>
 		<?php
-<<<<<<< HEAD
 			
 			$con = mysqli_connect('localhost', 'root', '', 'bd_recursos');
 
@@ -20,15 +19,6 @@ include('login.php');
 			
 			
 			
-=======
-			//Realizamos la conexión con mysql
-			$con = mysqli_connect('localhost','root','','bd_recursos');
-
-			//Esta consulta devuelve todos los datos del producto cuyo campo clave (pro_id) es igual a la id que nos llega por la barra de direcciones
-			$sql = "SELECT * FROM tbl_tipo_recurso  INNER JOIN tbl_recurso ON tbl_tipo_recurso.id_tipo_recurso=tbl_recurso.id_tipo_recurso WHERE tbl_tipo_recurso.id_tipo_recurso=$_REQUEST[recursos] AND tbl_recurso.id_tipo_recurso=$_REQUEST[recursos]";
-			
-			//Lanzamos la sentencia sql
->>>>>>> refs/remotes/origin/master
 			$datos = mysqli_query($con, $sql);
 			if(mysqli_num_rows($datos)>0){
 				?>
