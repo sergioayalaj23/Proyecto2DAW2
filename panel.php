@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 		<meta charset="utf-8"/>
@@ -16,7 +15,13 @@
 		</script>
 	</head>
 	<body>
+<<<<<<< HEAD
+		<center>
+		<section>
+		<form name="reservar" action="reservar.php" method="POST" onSubmit="return avisarBusqueda();">
+=======
 	<?php 
+>>>>>>> refs/remotes/origin/master
 
 	// Conexion a la base de datos
 	$conexion = mysqli_connect('localhost','root','','bd_recursos');
@@ -25,9 +30,15 @@
 	$username = $_REQUEST['username'];
 	$password = $_REQUEST['password'];
 
+<<<<<<< HEAD
+			 <section>
+
+            <article >
+=======
 	// Consulta a la base de datos
 	$sql = "SELECT * FROM tbl_usuario WHERE usuario ='$username' AND password ='$password' ";
 	$datos = mysqli_query($conexion,$sql);
+>>>>>>> refs/remotes/origin/master
 
 	if(mysqli_num_rows($datos) ==1){
 		echo "Bienvenido ".$username;
@@ -52,8 +63,13 @@
                 	<select name="recursos">
 				<option value="" selected>Selecciona una opción...</option>
 				<?php
+<<<<<<< HEAD
+include('login.php');
+				$con = mysqli_connect('localhost', 'root', '', 'bd_recursos');
+=======
 
 				$con = mysqli_connect('localhost','root','','bd_recursos');
+>>>>>>> refs/remotes/origin/master
 				$sql = mysqli_query($con, "SELECT * FROM tbl_tipo_recurso");
 
 
@@ -80,7 +96,7 @@
 		</form>
 	</section>
 	<section>
-		<form action="index.php" method="POST">
+		<form action="logout.php" method="POST">
 			<input type="submit" class="enlaceboton" value="Log Out">
 		</form>
 
