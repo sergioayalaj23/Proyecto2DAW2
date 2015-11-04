@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 		<meta charset="utf-8"/>
@@ -20,12 +19,12 @@
 	<body>
 		<center>
 		<section>
-		<form name="reservar" action="reservar.php" method="GET" onSubmit="return avisarBusqueda();">
+		<form name="reservar" action="reservar.php" method="POST" onSubmit="return avisarBusqueda();">
 
 
 			 <section>
 
-            <article  class="Celda1">
+            <article >
 
                 <p><a href="#reservar" class="enlaceboton">Buscar producto para reservar</a></p>
 					
@@ -40,8 +39,8 @@
                 	<select name="recursos">
 				<option value="" selected>Selecciona una opción...</option>
 				<?php
-
-				$con = mysqli_connect('localhost', 'root', 'DAW22015', 'bd_recursos');
+include('login.php');
+				$con = mysqli_connect('localhost', 'root', '', 'bd_recursos');
 				$sql = mysqli_query($con, "SELECT * FROM tbl_tipo_recurso");
 
 
@@ -67,7 +66,7 @@
 		</form>
 	</section>
 	<section>
-		<form action="index.php" method="POST">
+		<form action="logout.php" method="POST">
 			<input type="submit" class="enlaceboton" value="Log Out">
 		</form>
 
