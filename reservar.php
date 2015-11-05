@@ -1,52 +1,54 @@
+<?php
+	include('sesion.php');
+?>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>Mostrar los recursos a reservar</title>
-	</head>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>¡Reserva tu recurso!</title>
+	<link rel="stylesheet" href="css/style3.css">
+</head>
 	<body>
+	<nav>
+		<?php 
+			echo "Perfil de: ".$login_sesion." <a href='logout.php'>| Log Out</a>";
+		?>
+	</nav>
+	<div id="wrapper">
 		<?php
-			//Realizamos la conexión con mysql
-			$con = mysqli_connect('localhost','root','','bd_recursos');
-
-			//Esta consulta devuelve todos los datos del producto cuyo campo clave (pro_id) es igual a la id que nos llega por la barra de direcciones
+			$con = mysqli_connect('localhost', 'root', '', 'bd_recursos');
 			$sql = "SELECT * FROM tbl_tipo_recurso  INNER JOIN tbl_recurso ON tbl_tipo_recurso.id_tipo_recurso=tbl_recurso.id_tipo_recurso WHERE tbl_tipo_recurso.id_tipo_recurso=$_REQUEST[recursos] AND tbl_recurso.id_tipo_recurso=$_REQUEST[recursos]";
 			
-			//Lanzamos la sentencia sql
 			$datos = mysqli_query($con, $sql);
-			if(mysqli_num_rows($datos)>0){
-				?>
-				<table border>
-					<tr>
-						<th>Nombre del recurso</th>
-						<th>Id del recurso</th>
-						<th>Estado</th>
-					</tr>
-
-					<?php
-
-					//recorremos los resultados y los mostramos por pantalla
-					//la función substr devuelve parte de una cadena. A partir del segundo parámetro (aquí 0) devuelve tantos carácteres como el tercer parámetro (aquí 25)
-					while ($prod = mysqli_fetch_array($datos)){
-						echo "<tr><td>";
-
-						echo "$prod[nombre_recurso]";
+				if(mysqli_num_rows($datos)>0){
+		?>
 						
-						echo "</td><td>" . "$prod[id_recurso]" . "</td><td>$prod[estado]</td></tr>";
-					}
-
-					?>
-
-				</table>
-
-					<?php
+			<table border class="Celda1">
+				<tr>
+					<th>Recurso</th>
+					<th>Estado</th>
+					<th>Reservar</th>
+				</tr>
+		<?php
+		while ($prod = mysqli_fetch_array($datos)){
+			echo "<tr><td>";
+			echo "$prod[nombre_recurso]";
+			echo "</td><td>$prod[estado]</td>";
+				if ($prod['estado'] == "disponible") {
+					echo "<td><a href='confirmarreserva.php?id=$prod[id_recurso]'><img src='img/reservar.png'></a></td></tr>";
+				}else{
+					echo "<td><img src='img/minus.png'></td></tr>";
+				}
+		}
+		?>	
+			</table>
+		<?php
 			} else {
 				echo "Producto con id=$_REQUEST[recursos] no encontrado!";
 			}
-			//cerramos la conexión con la base de datos
 			mysqli_close($con);
 		?>
-		<br/><br/>
-		<a href="panel.php">Volver</a>
+		<p><a id="boton" href="perfil.php">Volver a mi perfil</a></p>
+	</div>
 	</body>
 </html>
