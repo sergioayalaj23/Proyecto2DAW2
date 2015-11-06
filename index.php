@@ -3,7 +3,7 @@
 
  	//Miramos si la variable Sesion existe y enviamos a la pagina perfil
 	if(isset($_SESSION['login_user'])){
-	 	header('location:panel.php');
+	 	header('location:perfil.php');
 	}
 	
  ?>
@@ -11,20 +11,22 @@
  <html lang="en">
  <head>
  	<meta charset="UTF-8">
- 	<title>Pagina web</title>
+ 	<title>¡Reserva tu recurso!</title>
  	<link rel="stylesheet" href="css/style.css">
  </head>
  <body>
  	<div id="wrapper">
- 		<h2>Acceso al Panel</h2>
- 		<form action="" method="GET">
+ 		<h2>Acceso al Perfil</h2>
+ 		<form id="form1" action="" method="POST">
  			<p>Usuario</p>
  			<p><input type="text" name="username" placeholder="admin"></p>
  			<p>Password</p>
  			<p><input type="password" name="password" placeholder="**********"></p>
+ 			<p><a href="#">Registrarme</a></p>
+			<p><a href="#">¿Olvidaste tu password?</a></p>
  				<!-- Variable error -->
  			<p><span><?php echo "$error"; ?></span></p>
- 			<p><input type="submit" name="submit" value="Acceder"></p>
+ 			<p><input type="submit" name="submit" value="Identificarse"></p>
  		</form>
  	</div>
  </body>
